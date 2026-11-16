@@ -1,0 +1,148 @@
+<html>
+<head>
+  <title>Activity Tracking</title>
+</head>
+<body>
+
+  <h1>Activity Tracking</h1>
+
+  <!-- 1. Activity Summary -->
+  <section id="activity-summary">
+    <h2>Activity Summary</h2>
+    <ul>
+      <li>Total Activities: 4</li>
+      <li>Total Duration: 185 minutes</li>
+      <li>Total Calories Burned: 1,330 kcal</li>
+      <li>Active Days: 4</li>
+    </ul>
+  </section>
+
+  <!-- 2. Add New Activity -->
+  <section id="add-activity">
+    <h2>Add New Activity</h2>
+    <form action="#" method="post">
+
+      <p>
+        <label for="name">Activity Name</label><br>
+        <input type="text" id="name" name="name" placeholder="e.g. Running" required>
+      </p>
+
+      <p>
+        <label for="category">Category</label><br>
+        <select id="category" name="category">
+          <option value="cardio">Cardio</option>
+          <option value="strength">Strength</option>
+          <option value="sports">Sports</option>
+          <option value="other">Other</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="date">Date</label><br>
+        <input type="date" id="date" name="date" required>
+      </p>
+
+      <p>
+        <label for="day">Day of the Week</label><br>
+        <select id="day" name="day">
+          <option>Monday</option>
+          <option>Tuesday</option>
+          <option>Wednesday</option>
+          <option>Thursday</option>
+          <option>Friday</option>
+          <option>Saturday</option>
+          <option>Sunday</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="time">Start Time</label><br>
+        <input type="time" id="time" name="time">
+      </p>
+
+      <p>
+        <label for="duration">Duration (minutes)</label><br>
+        <input type="number" id="duration" name="duration" min="1" required>
+      </p>
+
+      <p>
+        <label for="distance">Distance (km, optional)</label><br>
+        <input type="number" id="distance" name="distance" min="0" step="0.1">
+      </p>
+
+      <p>
+        <label for="calories">Calories Burned</label><br>
+        <input type="number" id="calories" name="calories" min="0">
+      </p>
+
+      <p>
+        <label for="notes">Notes</label><br>
+        <textarea id="notes" name="notes" rows="3"></textarea>
+      </p>
+
+      <button type="submit">Add Activity</button>
+    </form>
+  </section>
+
+  <!-- 3. Activity History -->
+  <section id="activity-history">
+    <h2>Activity History</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Day</th>
+          <th>Activity</th>
+          <th>Duration</th>
+          <th>Distance</th>
+          <th>Calories</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>09 Nov 2026</td><td>Monday</td><td>Running</td>
+          <td>40 min</td><td>6 km</td><td>480 kcal</td>
+          <td><button type="button">Edit</button> <button type="button">Delete</button></td>
+        </tr>
+        <tr>
+          <td>10 Nov 2026</td><td>Tuesday</td><td>Gym Workout</td>
+          <td>60 min</td><td>-</td><td>400 kcal</td>
+          <td><button type="button">Edit</button> <button type="button">Delete</button></td>
+        </tr>
+        <tr>
+          <td>11 Nov 2026</td><td>Wednesday</td><td>Cycling</td>
+          <td>45 min</td><td>15 km</td><td>350 kcal</td>
+          <td><button type="button">Edit</button> <button type="button">Delete</button></td>
+        </tr>
+        <tr>
+          <td>12 Nov 2026</td><td>Thursday</td><td>Swimming</td>
+          <td>40 min</td><td>1 km</td><td>100 kcal</td>
+          <td><button type="button">Edit</button> <button type="button">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 4. Weekly Overview -->
+  <section id="weekly-overview">
+    <h2>Weekly Activity Overview</h2>
+    <table>
+      <thead>
+        <tr><th>Day</th><th>Activity</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Monday</td><td>Running</td><td>Done</td></tr>
+        <tr><td>Tuesday</td><td>Gym Workout</td><td>Done</td></tr>
+        <tr><td>Wednesday</td><td>Cycling</td><td>Done</td></tr>
+        <tr><td>Thursday</td><td>Swimming</td><td>Done</td></tr>
+        <tr><td>Friday</td><td>-</td><td>Not recorded</td></tr>
+        <tr><td>Saturday</td><td>-</td><td>Not recorded</td></tr>
+        <tr><td>Sunday</td><td>-</td><td>Not recorded</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</section>
+</body>
+</html>
