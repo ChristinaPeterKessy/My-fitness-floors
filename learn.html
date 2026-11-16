@@ -71,6 +71,35 @@
          </div>
          
        </div>
-         
+       <!--How to start-->
+       <h2>How to start</h2>
+       <div class="box">
+         <label>Choose an activity:</label>
+         <select id="tipSelect" onchange="showTips()">
+           <option value="">-- Select --</option>
+           <option value="jogging">Jogging</option>
+           <option value="yoga">Yoga</option>
+           <option value="strength">Strength Training</option>
+         </select>
+         <div id="tipText"></div>
+       </div>
+
+       <!--Weekly plan-->
+       <h2>Sample Weekly Plan</h2>
+       <select id="planSelect" onchange="showPlan()">
+         <option value="beginner">Beginner</option>
+         <option value="intermediate">Intermediate</option>
+       </select>
+
+       <table>
+         <thead>
+           <tr><th>Day</th><th>Activity</th></tr>
+         </thead>
+         <tbody id="planBody"></tbody>
+       </table>
+
+     </div>
+
+    <footer>This is general information,not medical advice.</footer>
   </body>
 </html>
