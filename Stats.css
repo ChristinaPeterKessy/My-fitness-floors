@@ -53,5 +53,14 @@ button { font-family: inherit; cursor: pointer; }
 
 .avatar-link.active { box-shadow: 0 0 0 3px #c8102e; }
 
+/* LAYOUT */
+.wrap { max-width: 1240px; margin: 0 auto; padding: 44px 24px 60px; }
+.two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.muted { color: var(--grey); }
+.small { font-size: .82rem; }
+section { scroll-margin-top: 100px; }
+
+
+
 
 
