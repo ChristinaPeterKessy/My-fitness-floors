@@ -30,6 +30,35 @@ function showTips() {
   var choice =  document.getElementById("tipSelect").value;
   var box = document.getElementById("tipText");
 
+  if (choice == ""){
+    box.innerHTML = "":
+  } else {
+    box.innerHTML = "<p>" + tips[choice] + "</p>";
+  }
+}
+
+// Weekly plans
+var plans = {
+  beginner: [
+    ["Monday", "20 minute walk"],
+    ["Tuesday", "Rest"],
+    ["Wednesday", "15 minute light jog"],
+    ["Thursday", "Rest"],
+    ["Friday", "20 minute walk"],
+    ["Saturday", "Yoga (20 minutes)"],
+    ["Sunday", "Rest"]
+  ],
+  intermediate: [
+    ["Monday", "30 minute run"],
+    ["Tuesday", "Strength training"],
+    ["Wednesday", "Yoga (30 minutes)"],
+    ["Thursday", "30 minute run"],
+    ["Friday", "Strength training"],
+    ["Saturday", "45 minute cycling"],
+    ["Sunday", "Rest"]
+  ]
+};
+
   
 
 
