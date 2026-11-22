@@ -58,7 +58,19 @@ var plans = {
     ["Sunday", "Rest"]
   ]
 };
+function showPlan() {
+  var choice = document.getElementById("planSelect").value;
+  var rows = "";
 
+  for (var i = 0; i < plans[choice].length; i++) {
+    rows += "<tr><td>" + plans[choice][i][0] + "</td><td>" + plans[choice][i][1] + "</td></tr>";
+  }
+
+  document.getElementById("planBody").innerHTML = rows;
+}
+
+// Run when the page loads
+showPlan();
   
 
 
