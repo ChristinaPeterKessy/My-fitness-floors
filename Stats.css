@@ -55,10 +55,70 @@ button { font-family: inherit; cursor: pointer; }
 
 /* LAYOUT */
 .wrap { max-width: 1240px; margin: 0 auto; padding: 44px 24px 60px; }
+
 .two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+
 .muted { color: var(--grey); }
+
 .small { font-size: .82rem; }
+
 section { scroll-margin-top: 100px; }
+
+/* TYPE */
+.page-title, .title, .hero-title { font-family: var(--head); font-weight: 700; text-transform: uppercase; line-height: 1; }
+.page-title { font-size: 3.4rem; }
+.title { font-size: 2.2rem; line-height: 1.1; }
+.label { font-size: .75rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; margin: 10px 0 8px; }
+
+/* BUTTONS AND LINKS */
+.btn {
+  display: inline-block; border: 1px solid transparent; border-radius: 3px; padding: 14px 34px;
+  font-family: var(--head); font-size: 1.3rem; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; text-decoration: none; text-align: center; line-height: 1.2;
+}
+
+.btn-black { background: #000; color: #fff; }
+
+.btn-black:hover { background: var(--red); }
+
+.btn-wide { min-width: 360px; }
+
+/* CARDS */
+.card {
+  background: #fff; border: 1px solid var(--line); border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .05); padding: 28px; margin-bottom: 24px;
+}
+
+.two-col > .card { margin-bottom: 0; }
+
+.card-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+
+.card p + p { margin-top: 10px; }
+
+/* HERO */
+.hero { display: grid; grid-template-columns: 5fr 7fr; gap: 60px; align-items: center; margin-bottom: 20px; }
+
+.hero-title { font-size: clamp(3rem, 6vw, 5.2rem); line-height: .95; margin-bottom: 34px; }
+
+.hero-text p { max-width: 490px; font-size: 1.15rem; margin-bottom: 40px; }
+
+.hero-photo {
+  position: relative; aspect-ratio: 820 / 500; border-radius: 2px; overflow: hidden;
+  /* When using your own photo: background: url('../assets/hero.jpg') center / cover; */
+  background:
+  radial-gradient(circle at 70% 55%, rgba(240, 96, 90, .9) 0 14%, transparent 15%),
+  radial-gradient(circle at 62% 30%, #c98d6a 0 7%, transparent 8%),
+  radial-gradient(circle at 20% 15%, rgba(255, 255, 255, .22), transparent 40%),
+  linear-gradient(135deg, #2f4132, #10170f);
+}
+.hero-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .45), transparent 40%); }
+
+
+
+
+
+
+
 
 
 
