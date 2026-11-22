@@ -242,6 +242,44 @@ tr.today td { background: #fff4f5; }
 .records b { font-family: var(--head); font-size: 1.8rem; color: var(--red); white-space: nowrap; }
 .records small { display: block; color: var(--grey); font-size: .85rem; }
 
+/* FOOTER */
+.footer { text-align: center; padding: 30px 20px 40px; color: var(--grey); font-size: .9rem; border-top: 1px solid var(--line); }
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .tiles.five { grid-template-columns: repeat(3, 1fr); }
+  .hero { gap: 40px; }
+}
+
+@media (max-width: 900px) {
+  .hero, .two-col { grid-template-columns: minmax(0, 1fr); }
+  .tiles { grid-template-columns: repeat(2, 1fr); }
+  .btn-wide { min-width: 0; width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .wrap { padding: 28px 16px 48px; }
+  .tiles.five { grid-template-columns: 1fr; }
+  .tiles { grid-template-columns: 1fr 1fr; }
+  .page-title { font-size: 2.6rem; }
+  .card { padding: 20px; }
+  .tab { padding: 8px 14px; font-size: 1.05rem; }
+  .stats-head { margin-top: 50px; }
+  .splitgrid { grid-template-columns: 64px minmax(0, 1fr); }
+  .split-bar { font-size: .95rem; }
+  .topbar-inner { padding: 0 12px; height: 64px; grid-template-columns: auto minmax(0, 1fr) auto; gap: 6px; }
+  .logo { font-size: .85rem; letter-spacing: .04em; }
+  .topbar nav { gap: 0; justify-self: stretch; justify-content: center; overflow-x: auto; scrollbar-width: none; }
+  .topbar nav a { padding: 0 6px; font-size: .85rem; }
+  .avatar-link { width: 34px; height: 34px; }
+}
+
+@media (max-width: 400px) {
+  .logo { font-size: .72rem; letter-spacing: 0; }
+  .topbar nav a { padding: 0 4px; font-size: .8rem; }
+}
+
+
 
 
 
