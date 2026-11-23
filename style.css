@@ -8,9 +8,8 @@
   --bg: #ffffff;
   --good: #1b8a3a;
   --bad: #d9001b;
-  --head: 'Barlow Condensed', 'Oswald', 'Arial Narrow', Impact, sans-serif;
-  --body: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-}
+   --head: 'Oswald', 'Arial Narrow', Impact, sans-serif;
+  --body: 'Poppins', system-ui, 'Segoe UI', Roboto, Arial, sans-serif;
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--body); background: var(--bg); color: var(--ink); line-height: 1.5; }
