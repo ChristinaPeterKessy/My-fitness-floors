@@ -58,9 +58,13 @@ section { scroll-margin-top: 100px; }
 .page-title { font-size: 3.4rem; }
 .lead { color: var(--grey); font-size: 1.15rem; max-width: 760px; }
 .title { font-size: 2.2rem; line-height: 1.1; }
-  #add-activity { grid-row: auto; }
+ .label { font-size: .75rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; margin: 10px 0 8px; }
+.page-head { margin-bottom: 30px; }
+
+/* ===== Buttons and links ===== */
+.btn {
+  display: inline-block; border: 1px solid transparent; border-radius: 3px; padding: 14px 34px;
+  font-family: var(--head); font-size: 1.3rem; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; text-decoration: none; text-align: center; line-height: 1.2;
 }
-@media (max-width: 600px) {
-  body { padding: 20px 12px 48px; }
-  form { grid-template-columns: 1fr; }
-}
+.btn-black { background: #000; color: #fff; }
