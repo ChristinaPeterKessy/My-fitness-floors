@@ -1,11 +1,11 @@
 :root {
   --red: #d9001b;
-  --red-dark: #a80015;
-  --ink: #111111;
-  --grey: #6f6f6f;
-  --line: #e2e2e2;
-  --field: #aaaaaa;
-  --bg: #ffffff;
+  --primary: #ff5a36;      
+  --primary-dark: #e0401d;
+  --teal: #2ec4b6;
+  --blue: #4361ee;
+  --soft: #fff1ec;         /* light peach */
+  --bg: #f4f6fb;
   --good: #1b8a3a;
   --bad: #d9001b;
    --head: 'Oswald', 'Arial Narrow', Impact, sans-serif;
@@ -63,8 +63,8 @@ section { scroll-margin-top: 100px; }
   text-transform: uppercase; text-decoration: none; text-align: center; line-height: 1.2;
 }
 .btn-black { background: #000; color: #fff; }
-.btn-black:hover { background: var(--red); }
-.btn-outline { background: #fff; color: #000; border-color: #000; }
+.btn-black { background: var(--primary); color: #fff; border-radius: 8px; }
+.btn-black:hover { background: var(--primary-dark); }
 .btn-outline:hover { background: #000; color: #fff; }
 .btn-small { padding: 9px 20px; font-size: 1.1rem; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
