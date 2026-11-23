@@ -68,3 +68,14 @@ section { scroll-margin-top: 100px; }
   text-transform: uppercase; text-decoration: none; text-align: center; line-height: 1.2;
 }
 .btn-black { background: #000; color: #fff; }
+.btn-black:hover { background: var(--red); }
+.btn-outline { background: #fff; color: #000; border-color: #000; }
+.btn-outline:hover { background: #000; color: #fff; }
+.text-btn { background: none; border: 0; font-weight: 700; text-decoration: underline; color: var(--ink); font-size: inherit; padding: 0; }
+.text-btn.danger { color: var(--red); }
+
+/* ===== Cards ===== */
+.card {
+  background: #fff; border: 1px solid var(--line); border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .05); padding: 28px; margin-bottom: 24px;
+}
