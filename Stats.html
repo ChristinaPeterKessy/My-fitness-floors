@@ -83,8 +83,62 @@
         </section>
       </div>
 
-      
+      <section class="card">
+        <h2 class="title">Body weight</h2>
+        <h3 class="label">Weight (kg)</h3>
+        <div class="chart" id="chart-weight"></div>
+      </section>
 
+      <section class="card">
+        <h2 class="title">Workout splits</h2>
+        <p class="muted small">Your last 5 workout sessions</p>
+
+        <div class="splitgrid">
+          <div class="split-side"></div>
+          <div class="split-cols" id="split-head"></div>
+
+          <div class="split-side"><span class="label">Calories (kcal)</span></div>
+          <div class="split-bars" id="split-bars"></div>
+
+          <div class="split-side"><span class="label">Distance (km)</span></div>
+          <div class="split-bars split-bars-dark" id="split-dist"></div>
+        </div>
+
+        <button class="row-link" id="toggle-data" aria-expanded="false">
+          <span>View All Data</span><span class="chev" aria-hidden="true">&#8250;</span>
+        </button>
+        <div class="table-wrap" id="data-table" hidden></div>
+      </section>
+
+      <div class="two-col" style="margin-bottom:24px">
+        <section class="card">
+          <h2 class="title">Consistency</h2>
+          <h3 class="label">Active minutes, last 13 weeks</h3>
+          <div class="heatmap" id="heatmap"></div>
+          <div class="heat-key">
+            <span class="muted small">Less</span>
+            <i class="h0"></i><i class="h1"></i><i class="h2"></i><i class="h3"></i><i class="h4"></i>
+            <span class="muted small">More</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 class="title">Personal records</h2>
+          <h3 class="label">Your best so far</h3>
+          <ul class="records" id="records"></ul>
+        </section>
+      </div>
+
+  </main>
+
+  
+
+      
+      
+  <footer class="footer">MYFITNESSFLOORS &middot; Stats</footer>
+
+  <div id="tooltip" role="tooltip"></div>
+  <script src="Stats.js"></script>
 
 
       
