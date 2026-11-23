@@ -7,7 +7,7 @@
 
 var MFF = (function () {
 
-  // ---------- Storage (wrapped in try/catch so private mode does not break the page) ----------
+  // ---------- Storage (wrapped in try/catch so private mode does not break the page) ---------
   function load(key, fallback) {
     try {
       var raw = localStorage.getItem("mff." + key);
