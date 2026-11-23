@@ -277,22 +277,7 @@ function showFoods() {
 }
 $("foodSearch").addEventListener("input", showFoods);
 
-// ---------- Daily tip ----------
-var tipList = [
-  "Drink a glass of water when you wake up.",
-  "Take a 10 minute walk after meals.",
-  "Try to sleep 7 to 8 hours each night.",
-  "Add a vegetable to every meal.",
-  "Stretch for a few minutes every morning.",
-  "Take the stairs instead of the lift."
-];
-var lastTip = -1;
-$("newTip").addEventListener("click", function () {
-  var n;
-  do { n = Math.floor(Math.random() * tipList.length); } while (n === lastTip);
-  lastTip = n;
-  $("tipBox").textContent = tipList[n];
-});
+
 
 // ---------- Fill the tools from the saved profile ----------
 var profile = MFF.getProfile();
