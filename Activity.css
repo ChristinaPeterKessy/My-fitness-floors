@@ -1,21 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700&display=swap");
+/* =====================================================================
+   MYFITNESSFLOORS - Activity page styles
+   Look: white pages, black buttons, big condensed uppercase headlines,
+   thin grey card borders. Red is used for accents and data.
+   ===================================================================== */
 
-/* ---------- Colours and fonts ---------- */
 :root {
-  --ink: #111; --muted: #666; --line: #ccc; --red: #d9001b;
-  --head: "Barlow Condensed", "Arial Narrow", sans-serif;
-  color-scheme: light;
-  font-family: "Barlow", system-ui, sans-serif;
-}
-* { box-sizing: border-box; }
-html { background: #fff; }
-:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
-
-/* Page layout: summary on top, form left, tables right  */
-body {
-  max-width: 1180px; margin: 0 auto; padding: 32px 24px 64px;
-  background: #fff; color: var(--ink);
-  display: grid; grid-template-columns: minmax(300px, 400px) 1fr; gap: 24px; align-items: start;
+  --red: #d9001b;
+  --red-dark: #a80015;
+  --ink: #111111;
+  --grey: #6f6f6f;
+  --line: #e2e2e2;
+  --field: #aaaaaa;
+  --bg: #ffffff;
+  --good: #1b8a3a;
+  --bad: #d9001b;
+  --head: 'Barlow Condensed', 'Oswald', 'Arial Narrow', Impact, sans-serif;
+  --body: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 }
 h1, #activity-summary { grid-column: 1 / -1; }
 #add-activity { grid-row: span 2; }
