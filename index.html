@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | MYFITNESSFLOORS</title>
+    <meta name="description" content="Log your workouts, learn what suits you and watch your calories, steps and exercises improve week after week.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="../home/home.html">MYFITNESSFLOORS</a>
+      <nav aria-label="Main">
+        <a href="../home/home.html" class="active" aria-current="page">Home</a>
+        <a href="../learn/learn.html">Learn</a>
+        <a href="../activity/activity.html">Activity</a>
+        <a href="../stats/stats.html">Stats</a>
+      </nav>
+      <a class="avatar-link" href="../profile/profile.html" aria-label="Profile" title="Profile">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#c9c9c9"/><circle cx="24" cy="18" r="8" fill="#fff"/><path d="M8 40c2-8 9-12 16-12s14 4 16 12a24 24 0 0 1-32 0z" fill="#fff"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1 class="hero-title">Move more.<br>Learn more.<br>Track it all.</h1>
+        <p>Log your workouts, learn what suits you and watch your calories, steps and exercises improve week after week.</p>
+        <div class="hero-actions">
+          <a href="../activity/activity.html" class="btn btn-black">Log an activity</a>
+          <a href="../learn/learn.html" class="link-red">Learn how to start</a>
+        </div>
+      </div>
+    <figure class="hero-photo" role="img" aria-label="Runners in a road race, legs blurred in motion"></figure>  
+    </section>
+
+    <!-- What you can do -->
+    <h2 class="section-title">What you can do</h2>
+    <div class="three-col">
+      <article class="card feature">
+        <h3 class="title">Activity</h3>
+        <p>Add every run, ride and gym session with its time, distance and calories. Edit or delete entries any time.</p>
+        <a href="../activity/activity.html" class="link-red">Open Activity</a>
+      </article>
+      <article class="card feature">
+        <h3 class="title">Learn</h3>
+        <p>Pick an activity for your goal, follow a weekly plan and use the BMI, calorie, water and food tools.</p>
+        <a href="../learn/learn.html" class="link-red">Open Learn</a>
+      </article>
+      <article class="card feature">
+        <h3 class="title">Stats</h3>
+        <p>See calories, steps, push-ups, sit-ups and squats as clear graphs built from the activities you log.</p>
+        <a href="../stats/stats.html" class="link-red">Open Stats</a>
+      </article>
+    </div>
+
+    <!-- Our inspiration -->
+    <h2 class="section-title">Our inspiration</h2>
+    <section class="card inspiration" aria-label="Our inspiration">
+      <figure>
+        <img src="michael-smoak.jpg" alt="Michael Smoak smiling and holding a microphone">
+        <figcaption>Michael Smoak, Founder of HigherUp Wellness</figcaption>
+      </figure>
+      <div>
+        <blockquote>
+          While everyone is looking to reach the extremes without even beginning somewhere. We inspire people to know their floors in Health and Fitness Arena. We are determined to do that and only that. After ensuring thy floors are conquered, you can fly to thy greatness.
+        </blockquote>
+        <p>Inspired by the Founder of HigherUp Wellness, Michael Smoak (pictured). The audio below is one among his inspirations:</p>
+        <!-- Put the audio file in this folder with this name, or change the src -->
+        <audio id="inspiration-audio" controls preload="metadata">
+          <source src="inspiration.mp3" type="audio/mpeg">
+          Your browser does not support audio playback.
+        </audio>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">MYFITNESSFLOORS &middot; Track, train, improve</footer>
+
+  <script src="home.js"></script>
+
+</body>
+</html>
