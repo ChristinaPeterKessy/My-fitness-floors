@@ -159,3 +159,39 @@ tr.today td { background: #fff4f5; }
   .topbar nav a { padding: 0 4px; font-size: .8rem; }
 }
 
+.card .field input,
+.card .field select {
+  width: 100%;
+  padding: 12px 14px !important;
+  background: #fff !important;
+  border: 2px solid #111 !important;
+  border-radius: 6px !important;
+}
+
+.card .field input:focus,
+.card .field select:focus {
+  border-color: #d9001b !important;
+  outline: none;
+}
+
+.card .table-wrap {
+  border: 1px solid #e2e2e2 !important;
+  border-radius: 6px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.card .table-wrap th {
+  background: #111 !important;
+  color: #fff !important;
+  padding: 14px 16px !important;
+}
+
+.card .table-wrap td {
+  padding: 14px 16px !important;
+  border-bottom: 1px solid #e2e2e2 !important;
+}
+
+.card .table-wrap tbody tr:nth-child(even) {
+  background: #f7f7f9;
+}
