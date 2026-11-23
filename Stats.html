@@ -26,6 +26,68 @@
         </a>
       </div>
     </header>
+
+    <main class = "wrap">
+
+      <section class="hero">
+        <div class="hero-text">
+          <h1 class="hero-title">See progress.<br>Beat goals.<br>Keep going.</h1>
+          <p>Every activity you log shows up here as calories, steps, push-ups, sit-ups and squats, so you can watch your improvement grow week after week.</p>
+          <a href="#stats" class="btn btn-black btn-wide">Get started</a>
+        </div>
+        <figure class="hero-photo" role="img" aria-label="Athlete stretching outdoors">
+        </figure>
+      </section>
+
+      <div class="stats-head" id="stats">
+        <div>
+          <h2 class="page-title">Your stats</h2>
+          <p class="muted">Built from the activities you log</p>
+          <p class="data-note" id="data-note"></p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Time period">
+          <button class="tab" data-days="7">7 days</button>
+          <button class="tab active" data-days="14">14 days</button>
+          <button class="tab" data-days="30">30 days</button>
+        </div>
+      </div>
+
+      <section class="tiles five" id="summary" aria-label="Summary"></section>
+
+      <section class="card">
+        <h2 class="label">Today's goals</h2>
+        <div class="rings" id="rings"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2 class="title">Calories</h2>
+          <div class="legend" id="legend-calories"></div>
+        </div>
+        <h3 class="label">Calories burnt per day (kcal)</h3>
+        <div class="chart" id="chart-calories"></div>
+      </section>
+
+      <div class="two-col" style="margin-bottom:24px">
+        <section class="card">
+          <h2 class="title">Steps</h2>
+          <h3 class="label">Steps per day (goal 8,000)</h3>
+          <p class="muted small">Logged steps, or estimated from the distance of walks and runs.</p>
+          <div class="chart" id="chart-steps"></div>
+        </section>
+
+        <section class="card">
+          <h2 class="title">Exercise</h2>
+          <h3 class="label">Push-ups, sit-ups and squats per day</h3>
+          <div class="chart" id="chart-reps"></div>
+        </section>
+      </div>
+
+      
+
+
+
+      
     
   </body>
 </html>
