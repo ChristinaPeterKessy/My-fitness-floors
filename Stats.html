@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats | MYFITNESSFLOORS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Stats.css">
+    
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="logo" href="../home/home.html">MYFITNESSFLOORS</a>
+        <nav aria-label="Main">
+          <a href="../home/home.html">Home</a>
+          <a href="../learn/learn.html">Learn</a>
+          <a href="../activity/activity.html">Activity</a>
+          <a href="../stats/stats.html" class="active" aria-current="page">Stats</a>
+        </nav>
+        <a class="avatar-link" href="../profile/profile.html" aria-label="Profile" title="Profile">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#c9c9c9"/><circle cx="24" cy="18" r="8" fill="#fff"/><path d="M8 40c2-8 9-12 16-12s14 4 16 12a24 24 0 0 1-32 0z" fill="#fff"/></svg>
+        </a>
+      </div>
+    </header>
+
+    <main class = "wrap">
+
+      <section class="hero">
+        <div class="hero-text">
+          <h1 class="hero-title">See progress.<br>Beat goals.<br>Keep going.</h1>
+          <p>Every activity you log shows up here as calories, steps, push-ups, sit-ups and squats, so you can watch your improvement grow week after week.</p>
+          <a href="#stats" class="btn btn-black btn-wide">Get started</a>
+        </div>
+        <figure class="hero-photo" role="img" aria-label="Athlete stretching outdoors">
+        </figure>
+      </section>
+
+      <div class="stats-head" id="stats">
+        <div>
+          <h2 class="page-title">Your stats</h2>
+          <p class="muted">Built from the activities you log</p>
+          <p class="data-note" id="data-note"></p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Time period">
+          <button class="tab" data-days="7">7 days</button>
+          <button class="tab active" data-days="14">14 days</button>
+          <button class="tab" data-days="30">30 days</button>
+        </div>
+      </div>
+
+      <section class="tiles five" id="summary" aria-label="Summary"></section>
+
+      <section class="card">
+        <h2 class="label">Today's goals</h2>
+        <div class="rings" id="rings"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2 class="title">Calories</h2>
+          <div class="legend" id="legend-calories"></div>
+        </div>
+        <h3 class="label">Calories burnt per day (kcal)</h3>
+        <div class="chart" id="chart-calories"></div>
+      </section>
+
+      <div class="two-col" style="margin-bottom:24px">
+        <section class="card">
+          <h2 class="title">Steps</h2>
+          <h3 class="label">Steps per day (goal 8,000)</h3>
+          <p class="muted small">Logged steps, or estimated from the distance of walks and runs.</p>
+          <div class="chart" id="chart-steps"></div>
+        </section>
+
+        <section class="card">
+          <h2 class="title">Exercise</h2>
+          <h3 class="label">Push-ups, sit-ups and squats per day</h3>
+          <div class="chart" id="chart-reps"></div>
+        </section>
+      </div>
+
+      <section class="card">
+        <h2 class="title">Body weight</h2>
+        <h3 class="label">Weight (kg)</h3>
+        <div class="chart" id="chart-weight"></div>
+      </section>
+
+      <section class="card">
+        <h2 class="title">Workout splits</h2>
+        <p class="muted small">Your last 5 workout sessions</p>
+
+        <div class="splitgrid">
+          <div class="split-side"></div>
+          <div class="split-cols" id="split-head"></div>
+
+          <div class="split-side"><span class="label">Calories (kcal)</span></div>
+          <div class="split-bars" id="split-bars"></div>
+
+          <div class="split-side"><span class="label">Distance (km)</span></div>
+          <div class="split-bars split-bars-dark" id="split-dist"></div>
+        </div>
+
+        <button class="row-link" id="toggle-data" aria-expanded="false">
+          <span>View All Data</span><span class="chev" aria-hidden="true">&#8250;</span>
+        </button>
+        <div class="table-wrap" id="data-table" hidden></div>
+      </section>
+
+      <div class="two-col" style="margin-bottom:24px">
+        <section class="card">
+          <h2 class="title">Consistency</h2>
+          <h3 class="label">Active minutes, last 13 weeks</h3>
+          <div class="heatmap" id="heatmap"></div>
+          <div class="heat-key">
+            <span class="muted small">Less</span>
+            <i class="h0"></i><i class="h1"></i><i class="h2"></i><i class="h3"></i><i class="h4"></i>
+            <span class="muted small">More</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 class="title">Personal records</h2>
+          <h3 class="label">Your best so far</h3>
+          <ul class="records" id="records"></ul>
+        </section>
+      </div>
+
+  </main>
+
+  
+
+      
+      
+  <footer class="footer">MYFITNESSFLOORS &middot; Stats</footer>
+
+  <div id="tooltip" role="tooltip"></div>
+  <script src="Stats.js"></script>
+
+
+      
+    
+  </body>
+</html>
