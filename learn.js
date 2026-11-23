@@ -220,29 +220,6 @@ function showTips() {
 }
 $("tipSelect").addEventListener("change", showTips);
 
-// ---------- Weekly plans ----------
-var plans = {
-  beginner: [
-    ["Monday", "20 minute walk"], ["Tuesday", "Rest"], ["Wednesday", "15 minute light jog"],
-    ["Thursday", "Rest"], ["Friday", "20 minute walk"], ["Saturday", "Yoga (20 minutes)"], ["Sunday", "Rest"]
-  ],
-  intermediate: [
-    ["Monday", "30 minute run"], ["Tuesday", "Strength training"], ["Wednesday", "Yoga (30 minutes)"],
-    ["Thursday", "30 minute run"], ["Friday", "Strength training"], ["Saturday", "45 minute cycling"], ["Sunday", "Rest"]
-  ]
-};
-
-function showPlan(choice) {
-  $("planBody").innerHTML = plans[choice].map(function (row) {
-    return "<tr><td><strong>" + row[0] + "</strong></td><td>" + row[1] + "</td></tr>";
-  }).join("");
-  document.querySelectorAll("#planButtons .chip").forEach(function (b) {
-    b.classList.toggle("active", b.getAttribute("data-plan") === choice);
-  });
-}
-document.querySelectorAll("#planButtons .chip").forEach(function (b) {
-  b.addEventListener("click", function () { showPlan(b.getAttribute("data-plan")); });
-});
 
 // ---------- BMI ----------
 function calculateBMI() {
