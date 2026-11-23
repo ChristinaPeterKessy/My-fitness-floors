@@ -117,3 +117,23 @@ tr.today td { background: #fff4f5; }
 .stat .value { font-family: var(--head); font-size: 2.6rem; font-weight: 700; line-height: 1.05; }
 .stat .unit { font-family: var(--body); font-size: .9rem; font-weight: 500; color: var(--grey); margin-left: 3px; }
 .stat svg { display: block; width: 100%; height: 30px; }
+
+/* ===== Activity page ===== */
+.activity-layout { display: grid; grid-template-columns: minmax(320px, 460px) minmax(0, 1fr); gap: 24px; align-items: start; }
+.activity-layout .card { margin-bottom: 0; }
+.right-col { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; min-width: 0; }
+.week-nav { display: flex; align-items: center; gap: 12px; margin: 10px 0 14px; }
+.week-nav button { width: 54px; height: 46px; background: #fff; border: 1px solid #000; border-radius: 3px; font-size: 1.2rem; font-weight: 700; }
+.week-nav button:hover { background: #000; color: #fff; }
+.week-nav strong { font-family: var(--head); font-size: 1.5rem; text-transform: uppercase; }
+#history-table td:nth-child(3) { border-left: 4px solid var(--red); font-weight: 700; }
+#history-table td { white-space: nowrap; }
+
+/* ===== Stats page ===== */
+.key { display: inline-flex; align-items: center; gap: 6px; font-size: .9rem; font-weight: 600; }
+.key i { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+.h1 { background: #f7c3c9; }
+.h2 { background: #ee7f8b; }
+
+/* ===== Footer ===== */
+.footer { text-align: center; padding: 30px 20px 40px; color: var(--grey); font-size: .9rem; border-top: 1px solid var(--line); }
