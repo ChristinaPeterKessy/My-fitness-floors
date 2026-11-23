@@ -3,103 +3,185 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-      Learn - Health Tracker
-    </title>
+    <title>Learn | MYFITNESSFLOORS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+    
+  
   </head>
   <body>
-    <nav>
+    <header class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="index.html">MYFITNESSFLOORS</a>
+    <nav aria-label="Main">
       <a href="index.html">Home</a>
-      <a href="profile.html">Profile</a>
-      <a href="learn.html" class="active"></a>
-      <a href="tools.html">Tools</a>
-      <a href="track.html">Stats</a>
+      <a href="learn.html" class="active" aria-current="page">Learn</a>
+      <a href="Activity.html">Activity</a>
+      <a href="Stats.html">Stats</a>
     </nav>
-     <div class="container">
-      <h1>Lets get started!</h1>
-      <p>Now choose an activity that fits you.</p>
+    <a class="avatar-link" href="Page 2.html" aria-label="Profile" title="Profile">
+     
+    </a>
+  </div>
+</header>
+  <main class="wrap">
 
-      <!--filter buttons-->
+    <div class="page-head">
+      <h1 class="page-title">Let's get started!</h1>
+      <p class="lead">Choose an activity that fits you, follow a plan, and use the health tools to understand your body.</p>
       
-      <div>
-     <button onclick="filterCards('all')">All</button>
-     <button onclick="filterCards('weight')">Lose Weight</button>
-     <button onclick="filterCards('stamina')">Build Stamina</button>
-     <button onclick="filterCards('stress')">Reduce stress</button>
-     <button onclick="filterCards('strength')">Strength</button>
+    </div>
+
+    <!-- ===== Pick an activity ===== -->
+    <section id="activities">
+      <h2 class="title" style="margin:60px 0 18px">Pick an activity</h2>
+      <div class="btn-row" id="filters" style="margin-bottom:28px">
+        <button class="chip active" data-goal="all">All</button>
+        <button class="chip" data-goal="weight">Lose weight</button>
+        <button class="chip" data-goal="stamina">Build stamina</button>
+        <button class="chip" data-goal="stress">Reduce stress</button>
+        <button class="chip" data-goal="strength">Strength</button>
       </div>
 
-       <br>
+      <div class="cards-grid">
+        <article class="card activity-card" data-goal="weight stamina" data-tip="jogging" tabindex="0">
+          <h3 class="title">Jogging</h3>
+          <span class="badge">Beginner</span>
+          <p>About 280 calories per 30 min</p>
+        </article>
+        <article class="card activity-card" data-goal="weight stamina" data-tip="running" tabindex="0">
+          <h3 class="title">Running</h3>
+          <span class="badge">Intermediate</span>
+          <p>About 350 calories per 30 min</p>
+        </article>
+        <article class="card activity-card" data-goal="weight stress" data-tip="walking" tabindex="0">
+          <h3 class="title">Walking</h3>
+          <span class="badge">Beginner</span>
+          <p>About 130 calories per 30 min</p>
+        </article>
+        <article class="card activity-card" data-goal="weight stamina" data-tip="cycling" tabindex="0">
+          <h3 class="title">Cycling</h3>
+          <span class="badge">Beginner</span>
+          <p>About 250 calories per 30 min</p>
+        </article>
+        <article class="card activity-card" data-goal="stress strength" data-tip="yoga" tabindex="0">
+          <h3 class="title">Yoga</h3>
+          <span class="badge">Beginner</span>
+          <p>About 120 calories per 30 min</p>
+        </article>
+        <article class="card activity-card" data-goal="strength weight" data-tip="strength" tabindex="0">
+          <h3 class="title">Strength training</h3>
+          <span class="badge">Intermediate</span>
+          <p>About 200 calories per 30 min</p>
+        </article>
+      </div>
+      <p class="muted small" style="margin-top:14px">Tip: click a card to see how to start.</p>
+    </section>
 
-       <!--Activity cards-->
-       <div class="cards">
+    <!-- ===== How to start ===== -->
+    <section id="how-to-start">
+      <h2 class="section-title">How to start</h2>
+      <div class="card">
+        <div class="field" style="max-width:420px">
+          <label for="tipSelect">Choose an activity</label>
+          <select id="tipSelect">
+            <option value="">-- Select --</option>
+            <option value="jogging">Jogging</option>
+            <option value="running">Running</option>
+            <option value="walking">Walking</option>
+            <option value="cycling">Cycling</option>
+            <option value="yoga">Yoga</option>
+            <option value="strength">Strength training</option>
+          </select>
+        </div>
+        <div class="tips" id="tipText"><p class="muted">Pick an activity to see a warm-up, good form and the mistake to avoid.</p></div>
+      </div>
+    </section>
 
-         <div class="card" data-goal="weight stamina">
-           <h3>Jogging</h3>
-           <p>Level:Beginner</p>
-           <p>About 350 calories per 30 min</p>
-         </div>
+    <!-- ===== Weekly plan ===== -->
+    <section id="weekly-plan">
+      <h2 class="section-title">Sample weekly plan</h2>
+      <div class="card">
+        <div class="btn-row" id="planButtons" style="margin-bottom:18px">
+          <button class="chip active" data-plan="beginner">Beginner</button>
+          <button class="chip" data-plan="intermediate">Intermediate</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Day</th><th>Activity</th></tr></thead>
+            <tbody id="planBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-         <div class="card" data-goal="weight stamina">
-           <h3>Running</h3>
-           <p>Level: Intermediate</p>
-           <p>About 350 calories per 30 min</p>
-         </div>
+    <!-- ===== Health tools ===== -->
+    <section id="health-tools">
+      <h2 class="section-title">Health tools</h2>
+      <p class="lead" style="margin:-8px 0 24px">Quick calculators to understand your body and your daily needs.</p>
 
-         <div class="card" data-goal="weight stress">
-           <h3>Walking</h3>
-           <p>Level: Beginner</p>
-           <p>About 130 calories per 30 min</p>
-         </div>
+      <div class="two-col">
+        <!-- BMI -->
+        <div class="card">
+          <h3 class="tool-title">BMI calculator</h3>
+          <div class="form-grid">
+            <div class="field"><label for="bmiHeight">Height (cm)</label><input type="number" id="bmiHeight" min="1"></div>
+            <div class="field"><label for="bmiWeight">Weight (kg)</label><input type="number" id="bmiWeight" min="1"></div>
+          </div>
+          <button class="btn btn-black btn-small" style="margin-top:18px" id="bmiBtn">Calculate</button>
+          <p class="result" id="bmiResult" role="status"></p>
+        </div>
 
-         <div class="card" data-goal="stress strength">
-           <h3>Yoga</h3>
-           <p>Level:Beginner</p>
-           <p>About 120 calories per 30 min</p>
-         </div>
+        <!-- Calories -->
+        <div class="card">
+          <h3 class="tool-title">Daily calorie calculator</h3>
+          <div class="form-grid">
+            <div class="field"><label for="calAge">Age</label><input type="number" id="calAge" min="1"></div>
+            <div class="field"><label for="calGender">Gender</label>
+              <select id="calGender"><option value="male">Male</option><option value="female">Female</option></select></div>
+            <div class="field"><label for="calHeight">Height (cm)</label><input type="number" id="calHeight" min="1"></div>
+            <div class="field"><label for="calWeight">Weight (kg)</label><input type="number" id="calWeight" min="1"></div>
+            <div class="field span-2"><label for="calActivity">Activity level</label>
+              <select id="calActivity">
+                <option value="1.2">Little or no exercise</option>
+                <option value="1.375" selected>Light exercise (1-3 days/week)</option>
+                <option value="1.55">Moderate exercise (3-5 days/week)</option>
+                <option value="1.725">Hard exercise (6-7 days/week)</option>
+              </select></div>
+          </div>
+          <button class="btn btn-black btn-small" style="margin-top:18px" id="calBtn">Calculate</button>
+          <p class="result" id="calResult" role="status"></p>
+        </div>
 
-         <div class="card" data-goal="weight stamina">
-           <h3>Cycling</h3>
-           <p>Level: Beginner</p>
-           <p>About 250 calories per 30 min</p>
-         </div>
+        <!-- Water -->
+        <div class="card">
+          <h3 class="tool-title">Water tracker</h3>
+          <p>Goal: 8 glasses. You have had <strong id="glassCount">0</strong> today.</p>
+          <div class="bar"><div class="bar-fill" id="waterBar"></div></div>
+          <div class="btn-row">
+            <button class="btn btn-black btn-small" id="addGlass">+ Add glass</button>
+            <button class="btn btn-outline btn-small" id="resetWater">Reset</button>
+          </div>
+        </div>
 
-         <div class="card"  data-goal="strength weight">
-           <h3>Strength Training</h3>
-           <p>Level: Intermediate</p>
-           <p>About 200 calories per 30 min</p>
-         </div>
-         
-       </div>
-       <!--How to start-->
-       <h2>How to start</h2>
-       <div class="box">
-         <label>Choose an activity:</label>
-         <select id="tipSelect" onchange="showTips()">
-           <option value="">-- Select --</option>
-           <option value="jogging">Jogging</option>
-           <option value="yoga">Yoga</option>
-           <option value="strength">Strength Training</option>
-         </select>
-         <div id="tipText"></div>
-       </div>
+        <!-- Tip -->
+        <div class="card">
+          <h3 class="tool-title">Daily health tip</h3>
+          <p id="tipBox">Click the button to get a tip.</p>
+          <button class="btn btn-black btn-small" id="newTip">New tip</button>
+        </div>
+      </div>
 
-       <!--Weekly plan-->
-       <h2>Sample Weekly Plan</h2>
-       <select id="planSelect" onchange="showPlan()">
-         <option value="beginner">Beginner</option>
-         <option value="intermediate">Intermediate</option>
-       </select>
+      
+      
+    </section>
 
-       <table>
-         <thead>
-           <tr><th>Day</th><th>Activity</th></tr>
-         </thead>
-         <tbody id="planBody"></tbody>
-       </table>
+  </main>
 
-     </div>
-
-    <footer>This is general information,not medical advice.</footer>
-  </body>
+  <footer class="footer">This is general information, not medical advice.</footer>
+  <script src="learn.js"></script>
+</body>
 </html>
+   
