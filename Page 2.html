@@ -1,46 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- TODO: Your site title (was the original brand name) -->
-    <title>My Site</title>
-
-    <!-- TODO: Your own short description for search engines -->
-    <meta name="description" content="A short description of my site." />
-
-    <!-- TODO: Add your favicon here -->
-    <!-- <link rel="icon" href="/favicon.ico" /> -->
-
-    <!-- TODO: Link your own stylesheets (the original loaded its CSS from its own CDN) -->
-    <link rel="stylesheet" href="styles.css" />
-
-    <!-- TODO (optional): Add your own analytics or cookie-consent script here.
-         The original loaded several third-party trackers; I left them out. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile | MYFITNESSFLOORS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-    <!-- TODO: Your navigation links (the original had fitness-specific links) -->
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-    </nav>
 
-    <!-- Main content. The original used an empty <div id="root"> that a
-         JavaScript app filled in. Replace this with your own content,
-         or keep the div if you're using React or similar. -->
-    <main id="root">
-        <h1>Welcome</h1>
-        <p>Your content goes here.</p>
-    </main>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="../home/home.html">MYFITNESSFLOORS</a>
+      <nav aria-label="Main">
+        <a href="../home/home.html">Home</a>
+        <a href="../learn/learn.html">Learn</a>
+        <a href="../activity/activity.html">Activity</a>
+        <a href="../stats/stats.html">Stats</a>
+      </nav>
+      <a class="avatar-link active" href="../profile/profile.html" aria-label="Profile" title="Profile" aria-current="page">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#c9c9c9"/><circle cx="24" cy="18" r="8" fill="#fff"/><path d="M8 40c2-8 9-12 16-12s14 4 16 12a24 24 0 0 1-32 0z" fill="#fff"/></svg>
+      </a>
+    </div>
+  </header>
 
-    <!-- Fallback shown when JavaScript is disabled -->
-    <noscript>
-        <p>Please enable JavaScript for the full experience.</p>
-    </noscript>
+  <main class="wrap">
 
-    <!-- TODO: Link your own scripts (the original loaded a bundled app from its CDN) -->
-    <script src="main.js"></script>
+    <div class="page-head">
+      <h1 class="page-title">Profile</h1>
+      <p class="lead">Your details are saved in this browser and fill in the Learn tools for you.</p>
+    </div>
+
+    <div class="profile-layout">
+      <section class="card">
+        <h2 class="title">Your details</h2>
+        <form id="profile-form" class="form-grid" style="margin-top:18px">
+          <div class="field span-2"><label for="pName">Name</label><input type="text" id="pName" maxlength="40" autocomplete="given-name"></div>
+          <div class="field"><label for="pAge">Age</label><input type="number" id="pAge" min="1" max="120"></div>
+          <div class="field"><label for="pGender">Gender</label>
+            <select id="pGender"><option value="male">Male</option><option value="female">Female</option></select></div>
+          <div class="field"><label for="pHeight">Height (cm)</label><input type="number" id="pHeight" min="50" max="250"></div>
+          <div class="field"><label for="pWeight">Weight (kg)</label><input type="number" id="pWeight" min="20" max="300" step="0.1"></div>
+          <div class="field span-2"><label for="pGoal">Main goal</label>
+            <select id="pGoal">
+              <option value="weight">Lose weight</option>
+              <option value="stamina">Build stamina</option>
+              <option value="stress">Reduce stress</option>
+              <option value="strength">Build strength</option>
+            </select></div>
+          <div class="form-actions span-2">
+            <button type="submit" class="btn btn-black">Save profile</button>
+          </div>
+          <p class="span-2" id="profile-msg" role="status"></p>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2 class="title">Summary</h2>
+        <div id="summary"><p class="lead" style="margin-top:6px">Fill in your details and save to see your summary.</p></div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="footer">This is general information, not medical advice.</footer>
+  <script src="profile.js"></script>
 </body>
 </html>
