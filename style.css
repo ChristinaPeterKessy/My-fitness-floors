@@ -19,7 +19,7 @@ button { font-family: inherit; cursor: pointer; }
 :focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
 [hidden] { display: none !important; }
 
-/* ===== Top bar: logo left, links centred, profile avatar right ===== */
+/* ===== Top bar: logo left, links centred, profile avatar right ==== */
 .topbar { background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
 .topbar-inner {
   max-width: 1240px; margin: 0 auto; padding: 0 30px; height: 78px;
