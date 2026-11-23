@@ -39,25 +39,25 @@ max-width: 1240px; margin: 0 auto; padding: 0 30px; height: 78px;
 .topbar nav a {
   display: flex; align-items: center; padding: 0 20px; text-decoration: none; color: var(--ink);
   font-size: 1.05rem; border-bottom: 3px solid transparent; margin-bottom: -1px;
-textarea { resize: vertical; }
-input:user-invalid { border-color: var(--red); }
+}
+.topbar nav a:hover { border-bottom-color: #ccc; }
+.topbar nav a.active { border-bottom-color: #c8102e; }
+.avatar-link { justify-self: end; display: block; width: 46px; height: 46px; border-radius: 50%; padding: 2px; }
+.avatar-link svg { display: block; width: 100%; height: 100%; }
+.avatar-link:hover { opacity: .85; }
+.avatar-link.active { box-shadow: 0 0 0 3px #c8102e; }
 
-form button { padding: 12px; font: 700 1.15rem var(--head); letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--ink); border: 0; border-radius: 3px; cursor: pointer; }
-form button:hover { background: var(--red); }
+/* ===== Layout ===== */
+.wrap { max-width: 1240px; margin: 0 auto; padding: 44px 24px 60px; }
+.muted { color: var(--grey); }
+.small { font-size: .82rem; }
+section { scroll-margin-top: 100px; }
 
-/* Tables */
-table { width: 100%; border-collapse: collapse; }
-th { padding: 0 10px 10px; text-align: left; border-bottom: 2px solid var(--ink); font: 700 1rem var(--head); letter-spacing: .08em; text-transform: uppercase; }
-td { padding: 12px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
-tr:hover td { background: #fafafa; }
-#activity-history td:nth-child(3) { border-left: 4px solid var(--red); font-weight: 600; }
-
-td button { padding: 4px 6px; font: inherit; font-weight: 600; background: none; border: 0; text-decoration: underline; cursor: pointer; }
-td button:last-child { color: var(--red); }
-
-/*Tablet and phone: one column */
-@media (max-width: 900px) {
-  body { grid-template-columns: 1fr; }
+/* ===== Type ===== */
+.page-title, .title { font-family: var(--head); font-weight: 700; text-transform: uppercase; line-height: 1; }
+.page-title { font-size: 3.4rem; }
+.lead { color: var(--grey); font-size: 1.15rem; max-width: 760px; }
+.title { font-size: 2.2rem; line-height: 1.1; }
   #add-activity { grid-row: auto; }
 }
 @media (max-width: 600px) {
