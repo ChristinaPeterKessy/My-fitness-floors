@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Learn - Health Tracker
+    </title>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <a href="learn.html" class="active"></a>
+      <a href="tools.html">Tools</a>
+      <a href="track.html">Stats</a>
+    </nav>
+     <div class="container">
+      <h1>Lets get started!</h1>
+      <p>Now choose an activity that fits you.</p>
+
+      <!--filter buttons-->
+      
+      <div>
+     <button onclick="filterCards('all')">All</button>
+     <button onclick="filterCards('weight')">Lose Weight</button>
+     <button onclick="filterCards('stamina')">Build Stamina</button>
+     <button onclick="filterCards('stress')">Reduce stress</button>
+     <button onclick="filterCards('strength')">Strength</button>
+      </div>
+
+       <br>
+
+       <!--Activity cards-->
+       <div class="cards">
+
+         <div class="card" data-goal="weight stamina">
+           <h3>Jogging</h3>
+           <p>Level:Beginner</p>
+           <p>About 350 calories per 30 min</p>
+         </div>
+
+         <div class="card" data-goal="weight stamina">
+           <h3>Running</h3>
+           <p>Level: Intermediate</p>
+           <p>About 350 calories per 30 min</p>
+         </div>
+
+         <div class="card" data-goal="weight stress">
+           <h3>Walking</h3>
+           <p>Level: Beginner</p>
+           <p>About 130 calories per 30 min</p>
+         </div>
+
+         <div class="card" data-goal="stress strength">
+           <h3>Yoga</h3>
+           <p>Level:Beginner</p>
+           <p>About 120 calories per 30 min</p>
+         </div>
+
+         <div class="card" data-goal="weight stamina">
+           <h3>Cycling</h3>
+           <p>Level: Beginner</p>
+           <p>About 250 calories per 30 min</p>
+         </div>
+
+         <div class="card"  data-goal="strength weight">
+           <h3>Strength Training</h3>
+           <p>Level: Intermediate</p>
+           <p>About 200 calories per 30 min</p>
+         </div>
+         
+       </div>
+       <!--How to start-->
+       <h2>How to start</h2>
+       <div class="box">
+         <label>Choose an activity:</label>
+         <select id="tipSelect" onchange="showTips()">
+           <option value="">-- Select --</option>
+           <option value="jogging">Jogging</option>
+           <option value="yoga">Yoga</option>
+           <option value="strength">Strength Training</option>
+         </select>
+         <div id="tipText"></div>
+       </div>
+
+       <!--Weekly plan-->
+       <h2>Sample Weekly Plan</h2>
+       <select id="planSelect" onchange="showPlan()">
+         <option value="beginner">Beginner</option>
+         <option value="intermediate">Intermediate</option>
+       </select>
+
+       <table>
+         <thead>
+           <tr><th>Day</th><th>Activity</th></tr>
+         </thead>
+         <tbody id="planBody"></tbody>
+       </table>
+
+     </div>
+
+    <footer>This is general information,not medical advice.</footer>
+  </body>
+</html>

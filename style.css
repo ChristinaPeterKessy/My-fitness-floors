@@ -1,0 +1,136 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f7f5;
+  color: #222;
+  line-height: 1.5;
+}
+
+nav {
+  background: #8bc9e2;
+  padding: 12px 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 18px;
+}
+
+nav a:hover,
+nav a.active {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #70aad8;
+}
+
+h2 {
+  margin-top: 40px;
+  border-bottom: 2px solid #3181a9;
+  padding-bottom: 4px;
+}
+button {
+  background: #4688c2;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  margin: 4px 4px 4px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #318ad2;
+}
+
+input, select {
+  padding: 7px;
+  margin: 4px 8px 8px 0;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background: #e8f5e9;
+}
+
+.box {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 15px;
+  width: 260px;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #4983ce;
+}
+
+.result {
+  font-weight: bold;
+  color: #409fc5;
+}
+
+.bar {
+  background: #ddd;
+  height: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.bar-fill {
+  background: #5397db;
+  height: 100%;
+  width: 0%;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 100%;
+  }
+}
