@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity | MYFITNESSFLOORS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="activity (1).css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="../home/home.html">MYFITNESSFLOORS</a>
+      <nav aria-label="Main">
+        <a href="../home/home.html">Home</a>
+        <a href="../learn/learn.html">Learn</a>
+        <a href="../activity/activity.html" class="active" aria-current="page">Activity</a>
+        <a href="../stats/stats.html">Stats</a>
+      </nav>
+      <a class="avatar-link" href="../profile/profile.html" aria-label="Profile" title="Profile">
+        <svg viewBox="0 0 48 48" height ="40" width="40" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#c9c9c9"/><circle cx="24" cy="18" r="8" fill="#fff"/><path d="M8 40c2-8 9-12 16-12s14 4 16 12a24 24 0 0 1-32 0z" fill="#fff"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <div class="page-head">
+      <h1 class="page-title">Activity tracking</h1>
+      <p class="lead">Log every workout. Your Stats page is built from these entries.</p>
+    </div>
+
+    <!-- 1. Summary -->
+    <section class="tiles" id="activity-summary" aria-label="Activity summary">
+      <div class="stat"><p class="label">Total activities</p><p class="value" id="sum-count">0</p></div>
+      <div class="stat"><p class="label">Total duration</p><p class="value"><span id="sum-duration">0</span><span class="unit">min</span></p></div>
+      <div class="stat"><p class="label">Calories burned</p><p class="value"><span id="sum-calories">0</span><span class="unit">kcal</span></p></div>
+      <div class="stat"><p class="label">Active days</p><p class="value" id="sum-days">0</p></div>
+    </section>
+
+    <div class="activity-layout">
+
+      <!-- 2. Add new activity -->
+      <section class="card" id="add-activity">
+        <h2 class="title" id="form-title">Add new activity</h2>
+        <form id="activity-form" class="form-grid" novalidate style="margin-top:18px">
+
+          <div class="field req span-2">
+            <label for="name">Activity name</label>
+            <input type="text" id="name" placeholder="e.g. Running" required maxlength="60">
+          </div>
+
+          <div class="field req span-2">
+            <label for="category">Category</label>
+            <select id="category" required>
+              <option value="cardio">Cardio</option>
+              <option value="strength">Strength</option>
+              <option value="pushups">Push-ups</option>
+              <option value="situps">Sit-ups</option>
+              <option value="squats">Squats</option>
+              <option value="sports">Sports</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="field req">
+            <label for="date">Date</label>
+            <input type="date" id="date" required>
+          </div>
+
+          <div class="field">
+            <label for="day">Day of the week</label>
+            <select id="day">
+              <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+              <option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="time">Start time</label>
+            <input type="time" id="time">
+          </div>
+
+          <div class="field req">
+            <label for="duration">Duration (minutes)</label>
+            <input type="number" id="duration" min="1" required>
+          </div>
+
+          <div class="field">
+            <label for="distance">Distance (km)</label>
+            <input type="number" id="distance" min="0" step="0.1">
+          </div>
+
+          <div class="field">
+            <label for="calories">Calories burned</label>
+            <input type="number" id="calories" min="0">
+          </div>
+
+          <div class="field">
+            <label for="steps">Steps</label>
+            <input type="number" id="steps" min="0">
+          </div>
+
+          <div class="field">
+            <label for="reps">Reps</label>
+            <input type="number" id="reps" min="0">
+          </div>
+          <p class="hint span-2" style="margin-top:-10px">Leave steps empty and they are estimated from the distance of walks and runs. Reps are for push-ups, sit-ups and squats and feed the Exercise graphs on your Stats page.</p>
+
+          <div class="field span-2">
+            <label for="notes">Notes</label>
+            <textarea id="notes" rows="3"></textarea>
+          </div>
+
+          <div class="form-actions span-2">
+            <button type="submit" class="btn btn-black" id="submit-btn">Add activity</button>
+            <button type="button" class="btn btn-outline" id="cancel-btn" hidden>Cancel</button>
+          </div>
+          <p class="span-2" id="form-message" role="status"></p>
+        </form>
+      </section>
+
+      <div class="right-col">
+        <!-- 3. History -->
+        <section class="card" id="activity-history">
+          <h2 class="title">Activity history</h2>
+          <div class="table-wrap" style="margin-top:14px">
+            <table id="history-table">
+              <thead>
+                <tr><th>Date</th><th>Day</th><th>Activity</th><th>Duration</th><th>Distance</th><th>Calories</th><th>Action</th></tr>
+              </thead>
+              <tbody id="history-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 4. Weekly overview -->
+        <section class="card" id="weekly-overview">
+          <h2 class="title">Weekly activity overview</h2>
+          <div class="week-nav">
+            <button type="button" id="prev-week" aria-label="Previous week">&lsaquo;</button>
+            <strong id="week-label">Week of</strong>
+            <button type="button" id="next-week" aria-label="Next week">&rsaquo;</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Day</th><th>Activity</th><th>Status</th></tr></thead>
+              <tbody id="week-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">MYFITNESSFLOORS &middot; Activity</footer>
+  <script src="activity.js"></script>
+</body>
+</html>
