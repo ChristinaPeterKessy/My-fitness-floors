@@ -1,7 +1,7 @@
 // filtering the activity cards by goal
 var MFF = (function () {
 
-  // ---------- Storage (wrapped in try/catch so private mode does not break the page) ----------
+  //  Storage
   function load(key, fallback) {
     try {
       var raw = localStorage.getItem("mff." + key);
@@ -23,7 +23,7 @@ var MFF = (function () {
   function saveProfile(p) { save("profile", p); }
   function getWeights() { return load("weights", []); }
 
-  // Keep one weight per day, sorted by date
+  // Keeping one weight per day, sorted by date
   function addWeight(date, kg) {
     var list = getWeights().filter(function (w) { return w.date !== date; });
     list.push({ date: date, kg: kg });
@@ -31,7 +31,7 @@ var MFF = (function () {
     save("weights", list);
   }
 
-  // ---------- Dates (all local time, stored as "YYYY-MM-DD") ----------
+  // Dates (all local time )
   var DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -52,7 +52,7 @@ var MFF = (function () {
     return iso(d);
   }
 
-  // ---------- Numbers and text ----------
+  //  Numbers and text 
   function num(n, dp) {
     return Number(n || 0).toLocaleString("en-GB", { minimumFractionDigits: dp || 0, maximumFractionDigits: dp || 0 });
   }
@@ -63,8 +63,8 @@ var MFF = (function () {
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
-  // Steps: use the number logged, otherwise estimate from distance (about 1,350 steps per km)
-  // for on-foot activities only - rides, swims and rowing do not count as steps
+  // Steps use the number logged
+  // for on-foot activities only
   function stepsFor(a) {
     if (Number(a.steps) > 0) { return Number(a.steps); }
     if (/cycl|bike|ride|swim|row/i.test(a.name || "")) { return 0; }
@@ -76,8 +76,8 @@ var MFF = (function () {
     squats: "Squats", sports: "Sports", other: "Other"
   };
 
-  // ---------- Sample data ----------
-  // A small seeded random generator so the sample looks the same every visit
+  // Sample data 
+
   function rng(seed) {
     return function () {
       seed = (seed * 9301 + 49297) % 233280;
@@ -141,7 +141,7 @@ var MFF = (function () {
     });
   }
 
-  // ---------- Health maths (shared by Learn and Profile) ----------
+  // Health maths
   function bmi(heightCm, weightKg) {
     var m = heightCm / 100;
     var value = weightKg / (m * m);
@@ -169,11 +169,11 @@ var MFF = (function () {
 })();
 
 
-// ===== Learn page: activity cards, tips, weekly plan and health tools =====
+//Learn page: activity cards, tips, weekly plan and health tools
 
 function $(id) { return document.getElementById(id); }
 
-// ---------- Filter the activity cards by goal ----------
+//  Filter the activity cards by goal 
 var cards = document.querySelectorAll(".activity-card");
 var filterButtons = document.querySelectorAll("#filters .chip");
 
@@ -202,7 +202,7 @@ cards.forEach(function (card) {
   card.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
 });
 
-// ---------- How to start ----------
+//  How to start
 var tips = {
   jogging: ["Walk for 5 minutes first.", "Keep your back straight and your steps light.", "Starting too fast. Go slow and build up."],
   running: ["Jog gently for 5-10 minutes.", "Land under your hips, relax your shoulders and swing your arms.", "Adding distance too quickly. Increase by about 10% a week."],
@@ -220,17 +220,6 @@ function showTips() {
 }
 $("tipSelect").addEventListener("change", showTips);
 
-// ---------- Weekly plans ----------
-var plans = {
-  beginner: [
-    ["Monday", "20 minute walk"], ["Tuesday", "Rest"], ["Wednesday", "15 minute light jog"],
-    ["Thursday", "Rest"], ["Friday", "20 minute walk"], ["Saturday", "Yoga (20 minutes)"], ["Sunday", "Rest"]
-  ],
-  intermediate: [
-    ["Monday", "30 minute run"], ["Tuesday", "Strength training"], ["Wednesday", "Yoga (30 minutes)"],
-    ["Thursday", "30 minute run"], ["Friday", "Strength training"], ["Saturday", "45 minute cycling"], ["Sunday", "Rest"]
-  ]
-};
 
 function showPlan(choice) {
   $("planBody").innerHTML = plans[choice].map(function (row) {
@@ -244,7 +233,7 @@ document.querySelectorAll("#planButtons .chip").forEach(function (b) {
   b.addEventListener("click", function () { showPlan(b.getAttribute("data-plan")); });
 });
 
-// ---------- BMI ----------
+//  BMI 
 function calculateBMI() {
   var h = Number($("bmiHeight").value), w = Number($("bmiWeight").value);
   if (h <= 0 || w <= 0) { $("bmiResult").textContent = "Please enter your height and weight."; return; }
@@ -254,7 +243,7 @@ function calculateBMI() {
 }
 $("bmiBtn").addEventListener("click", calculateBMI);
 
-// ---------- Calories ----------
+//  Calories 
 function calculateCalories() {
   var age = Number($("calAge").value), h = Number($("calHeight").value), w = Number($("calWeight").value);
   if (age <= 0 || h <= 0 || w <= 0) { $("calResult").textContent = "Please fill in all the boxes."; return; }
@@ -265,7 +254,7 @@ function calculateCalories() {
 }
 $("calBtn").addEventListener("click", calculateCalories);
 
-// ---------- Water (saved for today only) ----------
+//  Water 
 var water = MFF.load("water", { date: MFF.today(), glasses: 0 });
 if (water.date !== MFF.today()) { water = { date: MFF.today(), glasses: 0 }; }
 
@@ -277,47 +266,11 @@ function updateWater() {
 $("addGlass").addEventListener("click", function () { water.glasses++; updateWater(); });
 $("resetWater").addEventListener("click", function () { water.glasses = 0; updateWater(); });
 
-// ---------- Food guide ----------
-var foods = [
-  ["Banana", 105, "1 g", "Fruit"],
-  ["Apple", 95, "0.5 g", "Fruit"],
-  ["Boiled egg", 78, "6 g", "Protein"],
-  ["Chicken breast (100g)", 165, "31 g", "Protein"],
-  ["Cooked rice (1 cup)", 205, "4 g", "Grain"],
-  ["Oats (1 cup, cooked)", 150, "5 g", "Grain"],
-  ["Broccoli (1 cup)", 55, "4 g", "Vegetable"],
-  ["Almonds (28g)", 165, "6 g", "Nuts"]
-];
 
-function showFoods() {
-  var text = $("foodSearch").value.trim().toLowerCase();
-  var rows = foods.filter(function (f) {
-    return f[0].toLowerCase().indexOf(text) !== -1 || f[3].toLowerCase().indexOf(text) !== -1;
-  }).map(function (f) {
-    return "<tr><td>" + f[0] + "</td><td>" + f[1] + " kcal</td><td>" + f[2] + "</td><td>" + f[3] + "</td></tr>";
-  });
-  $("foodBody").innerHTML = rows.length ? rows.join("") : '<tr><td colspan="4" class="empty">No foods match that search.</td></tr>';
-}
-$("foodSearch").addEventListener("input", showFoods);
 
-// ---------- Daily tip ----------
-var tipList = [
-  "Drink a glass of water when you wake up.",
-  "Take a 10 minute walk after meals.",
-  "Try to sleep 7 to 8 hours each night.",
-  "Add a vegetable to every meal.",
-  "Stretch for a few minutes every morning.",
-  "Take the stairs instead of the lift."
-];
-var lastTip = -1;
-$("newTip").addEventListener("click", function () {
-  var n;
-  do { n = Math.floor(Math.random() * tipList.length); } while (n === lastTip);
-  lastTip = n;
-  $("tipBox").textContent = tipList[n];
-});
 
-// ---------- Fill the tools from the saved profile ----------
+  
+//  Fill the tools from the saved profile 
 var profile = MFF.getProfile();
 if (profile) {
   $("bmiHeight").value = profile.height || "";
@@ -333,8 +286,8 @@ if (profile) {
   $("profile-note").innerHTML = '<a href="../profile/profile.html">Save your profile</a> to fill these in automatically.';
 }
 
-// ---------- Start ----------
-// learn.html?goal=weight opens with that filter (used by the Profile page)
+//  Start
+
 var goalParam = new URLSearchParams(location.search).get("goal");
 filterCards(["weight", "stamina", "stress", "strength"].indexOf(goalParam) !== -1 ? goalParam : "all");
 showPlan("beginner");
