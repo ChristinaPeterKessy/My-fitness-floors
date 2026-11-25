@@ -43,7 +43,7 @@ var MFF = (function () {
   function shortDate(s) { var d = parse(s); return d.getDate() + " " + MONTHS[d.getMonth()]; }
   function longDate(s) { var d = parse(s); return pad(d.getDate()) + " " + MONTHS[d.getMonth()] + " " + d.getFullYear(); }
 
-  // Monday of the week that contains date s
+  // Monday of the week that contains dates
   function weekStart(s) {
     var d = parse(s);
     var shift = (d.getDay() + 6) % 7;
@@ -62,9 +62,9 @@ var MFF = (function () {
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
-  // Steps: using the number logged; otherwise, estimate from distance (about 1,350 steps per km)
+  // Steps
   
-  // for on-foot activities only - rides, swims and rowing do not count as steps
+  // for on-foot activities only
   function stepsFor(a) {
     if (Number(a.steps) > 0) { return Number(a.steps); }
     if (/cycl|bike|ride|swim|row/i.test(a.name || "")) { return 0; }
@@ -168,9 +168,7 @@ var MFF = (function () {
   };
 })();
 
-
-// Stats page: summary, goal rings, charts, splits, heatmap and records =====
-// Everything is built from the activities logged on the Activity page.
+// Stats page
 // If nothing is logged yet, sample data is shown instead.
 
 var RED = "#d9001b", INK = "#111111", GREY = "#8a8a8a";
@@ -445,35 +443,6 @@ function renderCharts(cur) {
       series: [{ name: "Weight", color: RED, values: kg, unit: "kg" }] });
   }
 }
-
-// 7. Personal records 
-function renderRecords() {
-  var dates = Object.keys(byDate).filter(function (d) { return d <= TODAY; });
-  function best(key) {
-    var top = null;
-    dates.forEach(function (d) { if (byDate[d][key] > 0 && (!top || byDate[d][key] > byDate[top][key])) { top = d; } });
-    return top;
-  }
-  var items = [];
-  [["pushups", "Most push-ups in a day"], ["situps", "Most sit-ups in a day"], ["squats", "Most squats in a day"], ["steps", "Most steps in a day"]]
-    .forEach(function (r) {
-      var d = best(r[0]);
-      if (d) { items.push([r[1], MFF.shortDate(d), MFF.num(byDate[d][r[0]])]); }
-    });
-
-  var streak = 0, longest = 0;
-  days(91, TODAY).forEach(function (d) { streak = d.steps >= GOALS.steps ? streak + 1 : 0; longest = Math.max(longest, streak); });
-  items.push(["Longest " + MFF.num(GOALS.steps) + "-step streak", "in the last 13 weeks", longest + (longest === 1 ? " day" : " days")]);
-
-  var longestAct = acts.filter(function (a) { return a.date <= TODAY; })
-    .reduce(function (top, a) { return !top || Number(a.duration) > Number(top.duration) ? a : top; }, null);
-  if (longestAct) { items.push(["Longest single activity", MFF.esc(longestAct.name) + ", " + MFF.shortDate(longestAct.date), longestAct.duration + " min"]); }
-
-  $("records").innerHTML = items.map(function (r) {
-    return "<li><span>" + r[0] + "<small>" + r[1] + "</small></span><b>" + r[2] + "</b></li>";
-  }).join("");
-}
-
 // Draw everything 
 function render() {
   var cur = days(period, TODAY);
