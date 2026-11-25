@@ -1,0 +1,161 @@
+/* =====================================================================
+   MYFITNESSFLOORS - Activity page styles
+   Look: white pages, black buttons, big condensed uppercase headlines,
+   thin grey card borders. Red is used for accents and data.
+   ===================================================================== */
+
+:root {
+  --red: #d9001b;
+  --red-dark: #a80015;
+  --ink: #111111;
+  --grey: #6f6f6f;
+  --line: #e2e2e2;
+  --field: #aaaaaa;
+  --bg: #ffffff;
+  --good: #1b8a3a;
+  --bad: #d9001b;
+  --head: 'Barlow Condensed', 'Oswald', 'Arial Narrow', Impact, sans-serif;
+  --body: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--bg); color: var(--ink); line-height: 1.5; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+[hidden] { display: none !important; }
+
+/* ===== Top bar: logo left, links centred, profile avatar right ===== */
+.topbar { background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+.topbar-inner {
+max-width: 1240px; margin: 0 auto; padding: 0 30px; height: 78px;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px;
+}
+.logo {
+  font-family: var(--head); font-weight: 700; font-size: 1.7rem; letter-spacing: .2em;
+  text-decoration: none; color: var(--ink); white-space: nowrap; width: max-content;
+}
+.topbar nav { display: flex; align-self: stretch; justify-self: center; gap: 4px; }
+.topbar nav a {
+  display: flex; align-items: center; padding: 0 20px; text-decoration: none; color: var(--ink);
+  font-size: 1.05rem; border-bottom: 3px solid transparent; margin-bottom: -1px;
+}
+.topbar nav a:hover { border-bottom-color: #ccc; }
+.topbar nav a.active { border-bottom-color: #c8102e; }
+.avatar-link { justify-self: end; display: block; width: 46px; height: 46px; border-radius: 50%; padding: 2px; }
+.avatar-link svg { display: block; width: 100%; height: 100%; }
+.avatar-link:hover { opacity: .85; }
+.avatar-link.active { box-shadow: 0 0 0 3px #c8102e; }
+
+/* ===== Layout ===== */
+.wrap { max-width: 1240px; margin: 0 auto; padding: 44px 24px 60px; }
+.muted { color: var(--grey); }
+.small { font-size: .82rem; }
+section { scroll-margin-top: 100px; }
+
+/* ===== Type ===== */
+.page-title, .title { font-family: var(--head); font-weight: 700; text-transform: uppercase; line-height: 1; }
+.page-title { font-size: 3.4rem; }
+.lead { color: var(--grey); font-size: 1.15rem; max-width: 760px; }
+.title { font-size: 2.2rem; line-height: 1.1; }
+ .label { font-size: .75rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; margin: 10px 0 8px; }
+.page-head { margin-bottom: 30px; }
+
+/* ===== Buttons and links ===== */
+.btn {
+  display: inline-block; border: 1px solid transparent; border-radius: 3px; padding: 14px 34px;
+  font-family: var(--head); font-size: 1.3rem; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; text-decoration: none; text-align: center; line-height: 1.2;
+}
+.btn-black { background: #000; color: #fff; }
+.btn-black:hover { background: var(--red); }
+.btn-outline { background: #fff; color: #000; border-color: #000; }
+.btn-outline:hover { background: #000; color: #fff; }
+.text-btn { background: none; border: 0; font-weight: 700; text-decoration: underline; color: var(--ink); font-size: inherit; padding: 0; }
+.text-btn.danger { color: var(--red); }
+
+/* ===== Cards ===== */
+.card {
+  background: #fff; border: 1px solid var(--line); border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .05); padding: 28px; margin-bottom: 24px;
+}
+.card p + p { margin-top: 10px; }
+.pill { display: inline-block; padding: 3px 14px; border-radius: 999px; background: #eee; color: #555; font-size: .85rem; font-weight: 700; }
+.pill.done { background: #e3f3e7; color: var(--good); }
+
+/* ===== Forms ===== */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
+.field label { display: block; margin-bottom: 8px; font-size: .78rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; }
+.field.req label::after { content: " *"; color: var(--red); }
+.span-2 { grid-column: 1 / -1; }
+.hint { font-size: .85rem; color: var(--grey); margin-top: 6px; }
+input, select, textarea {
+  width: 100%; padding: 14px 16px; font: inherit; font-size: 1.05rem; color: inherit; background: #fff;
+  border: 1px solid var(--field); border-radius: 3px;
+}
+textarea { resize: vertical; min-height: 110px; }
+input:user-invalid { border-color: var(--red); }
+.form-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.toast { margin-top: 12px; font-weight: 700; color: var(--good); }
+
+/* ===== Tables ===== */
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 1rem; }
+th {
+  text-align: left; font-size: .78rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase;
+  padding: 10px 12px; border-bottom: 2px solid var(--ink); white-space: nowrap;
+}
+td { padding: 14px 12px; border-bottom: 1px solid var(--line); }
+tbody tr:hover { background: #fafafa; }
+tr.today td { background: #fff4f5; }
+.empty { color: var(--grey); padding: 28px 12px; text-align: center; }
+
+/* ===== Stat tiles ===== */
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 24px; }
+.stat { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 18px; box-shadow: 0 1px 4px rgba(0, 0, 0, .05); }
+.stat .label { margin: 0 0 6px; color: #555; }
+.stat .value { font-family: var(--head); font-size: 2.6rem; font-weight: 700; line-height: 1.05; }
+.stat .unit { font-family: var(--body); font-size: .9rem; font-weight: 500; color: var(--grey); margin-left: 3px; }
+.stat svg { display: block; width: 100%; height: 30px; }
+
+/* ===== Activity page ===== */
+.activity-layout { display: grid; grid-template-columns: minmax(320px, 460px) minmax(0, 1fr); gap: 24px; align-items: start; }
+.activity-layout .card { margin-bottom: 0; }
+.right-col { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; min-width: 0; }
+.week-nav { display: flex; align-items: center; gap: 12px; margin: 10px 0 14px; }
+.week-nav button { width: 54px; height: 46px; background: #fff; border: 1px solid #000; border-radius: 3px; font-size: 1.2rem; font-weight: 700; }
+.week-nav button:hover { background: #000; color: #fff; }
+.week-nav strong { font-family: var(--head); font-size: 1.5rem; text-transform: uppercase; }
+#history-table td:nth-child(3) { border-left: 4px solid var(--red); font-weight: 700; }
+#history-table td { white-space: nowrap; }
+
+/* ===== Stats page ===== */
+.key { display: inline-flex; align-items: center; gap: 6px; font-size: .9rem; font-weight: 600; }
+.key i { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+.h1 { background: #f7c3c9; }
+.h2 { background: #ee7f8b; }
+
+/* ===== Footer ===== */
+.footer { text-align: center; padding: 30px 20px 40px; color: var(--grey); font-size: .9rem; border-top: 1px solid var(--line); }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .activity-layout { grid-template-columns: minmax(0, 1fr); }
+  .tiles { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 28px 16px 48px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .tiles { grid-template-columns: 1fr 1fr; }
+  .page-title { font-size: 2.6rem; }
+  .card { padding: 20px; }
+  .topbar-inner { padding: 0 12px; height: 64px; grid-template-columns: auto minmax(0, 1fr) auto; gap: 6px; }
+  .logo { font-size: .85rem; letter-spacing: .04em; }
+  .topbar nav { gap: 0; justify-self: stretch; justify-content: center; overflow-x: auto; scrollbar-width: none; }
+  .topbar nav a { padding: 0 6px; font-size: .85rem; }
+  .avatar-link { width: 34px; height: 34px; }
+}
+@media (max-width: 400px) {
+  .logo { font-size: .72rem; letter-spacing: 0; }
+  .topbar nav a { padding: 0 4px; font-size: .8rem; }
+}
