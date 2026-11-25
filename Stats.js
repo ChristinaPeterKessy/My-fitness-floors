@@ -497,19 +497,6 @@ $("toggle-data").addEventListener("click", function () {
   $("data-table").hidden = open;
 });
 
-// 6. Consistency heatmap (13 weeks, Monday to Sunday) 
-function renderHeatmap() {
-  var start = MFF.addDays(MFF.weekStart(TODAY), -12 * 7);
-  var cells = "";
-  for (var i = 0; i < 91; i++) {
-    var date = MFF.addDays(start, i);
-    if (date > TODAY) { cells += '<i class="future"></i>'; continue; }
-    var mins = (byDate[date] || {}).minutes || 0;
-    var lvl = mins === 0 ? 0 : mins < 20 ? 1 : mins < 40 ? 2 : mins < 60 ? 3 : 4;
-    cells += '<i class="h' + lvl + '" title="' + MFF.dayName(date) + " " + MFF.shortDate(date) + ": " + mins + ' active min"></i>';
-  }
-  $("heatmap").innerHTML = cells;
-}
 
 // 7. Personal records 
 function renderRecords() {
