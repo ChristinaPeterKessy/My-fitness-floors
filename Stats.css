@@ -105,11 +105,8 @@ section { scroll-margin-top: 100px; }
 .hero-photo {
   position: relative; aspect-ratio: 820 / 500; border-radius: 2px; overflow: hidden;
   /* When using your own photo: background: url('../assets/hero.jpg') center / cover; */
-  background:
-  radial-gradient(circle at 70% 55%, rgba(240, 96, 90, .9) 0 14%, transparent 15%),
-  radial-gradient(circle at 62% 30%, #c98d6a 0 7%, transparent 8%),
-  radial-gradient(circle at 20% 15%, rgba(255, 255, 255, .22), transparent 40%),
-  linear-gradient(135deg, #2f4132, #10170f);
+  background: url('tracking.jpg')
+  
 }
 .hero-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .45), transparent 40%); }
 
