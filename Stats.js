@@ -446,58 +446,6 @@ function renderCharts(cur) {
   }
 }
 
-// 4. Workout splits (last 5 sessions) 
-function renderSplits() {
-  var last = acts.filter(function (a) { return a.date <= TODAY; }).sort(function (a, b) {
-    return (a.date + (a.time || "")) < (b.date + (b.time || "")) ? -1 : 1;
-  }).slice(-5);
-  var n = last.length;
-  document.querySelectorAll(".split-cols, .split-bars").forEach(function (el) { el.style.setProperty("--n", Math.max(n, 1)); });
-
-  if (n === 0) {
-    $("split-head").innerHTML = '<p class="empty">No sessions yet.</p>';
-    $("split-bars").innerHTML = $("split-dist").innerHTML = "";
-    return;
-  }
-
-  $("split-head").innerHTML = last.map(function (a, i) {
-    return '<div class="split-head-cell"><b>' + (i + 1) + "</b>" + a.duration + ' min<span class="split-name">' + MFF.esc(a.name) + "</span></div>";
-  }).join("");
-
-  function bars(el, key, dp) {
-    var vals = last.map(function (a) { return Number(a[key]) || 0; });
-    var max = Math.max.apply(null, vals);
-    if (max === 0) { el.innerHTML = '<p class="empty" style="grid-column:1/-1;align-self:center">None of these sessions has a ' + (key === "distance" ? "distance" : "calorie count") + ".</p>"; return; }
-    var avg = sum(vals) / n;
-    el.innerHTML = vals.map(function (v, i) {
-      if (v === 0) { return '<div class="split-bar-col"></div>'; }
-      return '<div class="split-bar-col"><div class="split-bar" title="' + MFF.esc(last[i].name) + " · " + MFF.shortDate(last[i].date) +
-        '" style="height:' + Math.max(18, v / max * 100) + '%">' + MFF.num(v, dp) + "</div></div>";
-    }).join("") + '<div class="split-avg" style="bottom:' + (avg / max * 100) + '%"><span>avg ' + MFF.num(avg, dp) + "</span></div>";
-  }
-  bars($("split-bars"), "calories", 0);
-  bars($("split-dist"), "distance", 1);
-}
-
-// 5. All data table 
-function renderTable(cur) {
-  var rows = cur.slice().reverse().map(function (d) {
-    return "<tr><td>" + MFF.dayName(d.date).slice(0, 3) + " " + MFF.shortDate(d.date) + "</td><td>" + d.count + "</td><td>" + d.minutes +
-      " min</td><td>" + MFF.num(d.distance, 1) + " km</td><td>" + MFF.num(d.calories) + "</td><td>" + MFF.num(d.steps) +
-      "</td><td>" + d.pushups + "</td><td>" + d.situps + "</td><td>" + d.squats + "</td></tr>";
-  }).join("");
-  $("data-table").innerHTML = "<table><thead><tr><th>Day</th><th>Activities</th><th>Active</th><th>Distance</th><th>Calories</th>" +
-    "<th>Steps</th><th>Push-ups</th><th>Sit-ups</th><th>Squats</th></tr></thead><tbody>" + rows + "</tbody></table>";
-}
-
-$("toggle-data").addEventListener("click", function () {
-  var open = this.getAttribute("aria-expanded") === "true";
-  this.setAttribute("aria-expanded", String(!open));
-  this.querySelector("span").textContent = open ? "View All Data" : "Hide Data";
-  $("data-table").hidden = open;
-});
-
-
 // 7. Personal records 
 function renderRecords() {
   var dates = Object.keys(byDate).filter(function (d) { return d <= TODAY; });
