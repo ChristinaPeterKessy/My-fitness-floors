@@ -1,13 +1,13 @@
-/* =====================================================================
+/* 
    MYFITNESSFLOORS - shared helpers used by every page
    - Saves activities, profile and weight in this browser (localStorage)
    - Date and number helpers
    - Sample data for the Stats page when nothing is logged yet
-   ===================================================================== */
+ */
 
 var MFF = (function () {
 
-  // ---------- Storage (wrapped in try/catch so private mode does not break the page) ---------
+  //  Storage (wrapped in try/catch so private mode does not break the page) 
   function load(key, fallback) {
     try {
       var raw = localStorage.getItem("mff." + key);
@@ -37,7 +37,7 @@ var MFF = (function () {
     save("weights", list);
   }
 
-  // ---------- Dates (all local time, stored as "YYYY-MM-DD") ----------
+  //  Dates (all local time, stored as "YYYY-MM-DD") 
   var DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -58,7 +58,7 @@ var MFF = (function () {
     return iso(d);
   }
 
-  // ---------- Numbers and text ----------
+  //  Numbers and text
   function num(n, dp) {
     return Number(n || 0).toLocaleString("en-GB", { minimumFractionDigits: dp || 0, maximumFractionDigits: dp || 0 });
   }
@@ -82,7 +82,7 @@ var MFF = (function () {
     squats: "Squats", sports: "Sports", other: "Other"
   };
 
-  // ---------- Sample data ----------
+  // Sample data
   // A small seeded random generator so the sample looks the same every visit
   function rng(seed) {
     return function () {
@@ -147,7 +147,7 @@ var MFF = (function () {
     });
   }
 
-  // ---------- Health maths (shared by Learn and Profile) ----------
+  //  Health maths (shared by Learn and Profile) 
   function bmi(heightCm, weightKg) {
     var m = heightCm / 100;
     var value = weightKg / (m * m);
@@ -175,7 +175,7 @@ var MFF = (function () {
 })();
 
 
-// ===== Activity page: add, edit, delete and list workouts =====
+// Activity page: add, edit, delete and list workouts
 
 var activities = MFF.getActivities();
 var editingId = null;
@@ -188,7 +188,7 @@ var message = document.getElementById("form-message");
 
 function field(id) { return document.getElementById(id); }
 
-// ---------- Summary tiles ----------
+//  Summary tiles 
 function renderSummary() {
   var minutes = 0, calories = 0, days = {};
   activities.forEach(function (a) {
@@ -202,7 +202,7 @@ function renderSummary() {
   field("sum-days").textContent = MFF.num(Object.keys(days).length);
 }
 
-// ---------- History table (newest first) ----------
+//  History table (newest first) 
 function sorted() {
   return activities.slice().sort(function (a, b) {
     return (b.date + (b.time || "")) < (a.date + (a.time || "")) ? -1 : 1;
@@ -257,7 +257,7 @@ field("history-body").addEventListener("click", function (e) {
   }
 });
 
-// ---------- Weekly overview ----------
+//  Weekly overview 
 function renderWeek() {
   field("week-label").textContent = "Week of " + MFF.shortDate(shownWeek);
   var rows = "";
@@ -277,7 +277,7 @@ function renderWeek() {
 field("prev-week").addEventListener("click", function () { shownWeek = MFF.addDays(shownWeek, -7); renderWeek(); });
 field("next-week").addEventListener("click", function () { shownWeek = MFF.addDays(shownWeek, 7); renderWeek(); });
 
-// ---------- Form ----------
+// Form
 function syncDay() {
   if (dateInput.value) { dayInput.value = MFF.dayName(dateInput.value); }
 }
