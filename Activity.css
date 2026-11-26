@@ -1,8 +1,8 @@
-/* =====================================================================
+/* 
    MYFITNESSFLOORS - Activity page styles
    Look: white pages, black buttons, big condensed uppercase headlines,
    thin grey card borders. Red is used for accents and data.
-   ===================================================================== */
+   */
 
 :root {
   --red: #d9001b;
@@ -25,7 +25,7 @@ button { font-family: inherit; cursor: pointer; }
 :focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
 [hidden] { display: none !important; }
 
-/* ===== Top bar: logo left, links centred, profile avatar right ===== */
+/*  Top bar: logo left, links centred, profile avatar right */
 .topbar { background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
 .topbar-inner {
 max-width: 1240px; margin: 0 auto; padding: 0 30px; height: 78px;
@@ -47,13 +47,13 @@ max-width: 1240px; margin: 0 auto; padding: 0 30px; height: 78px;
 .avatar-link:hover { opacity: .85; }
 .avatar-link.active { box-shadow: 0 0 0 3px #c8102e; }
 
-/* ===== Layout ===== */
+/*  Layout */
 .wrap { max-width: 1240px; margin: 0 auto; padding: 44px 24px 60px; }
 .muted { color: var(--grey); }
 .small { font-size: .82rem; }
 section { scroll-margin-top: 100px; }
 
-/* ===== Type ===== */
+/*Type */
 .page-title, .title { font-family: var(--head); font-weight: 700; text-transform: uppercase; line-height: 1; }
 .page-title { font-size: 3.4rem; }
 .lead { color: var(--grey); font-size: 1.15rem; max-width: 760px; }
@@ -61,7 +61,7 @@ section { scroll-margin-top: 100px; }
  .label { font-size: .75rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; margin: 10px 0 8px; }
 .page-head { margin-bottom: 30px; }
 
-/* ===== Buttons and links ===== */
+/*  Buttons and links  */
 .btn {
   display: inline-block; border: 1px solid transparent; border-radius: 3px; padding: 14px 34px;
   font-family: var(--head); font-size: 1.3rem; font-weight: 700; letter-spacing: 1px;
@@ -74,7 +74,7 @@ section { scroll-margin-top: 100px; }
 .text-btn { background: none; border: 0; font-weight: 700; text-decoration: underline; color: var(--ink); font-size: inherit; padding: 0; }
 .text-btn.danger { color: var(--red); }
 
-/* ===== Cards ===== */
+/* Cards  */
 .card {
   background: #fff; border: 1px solid var(--line); border-radius: 6px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, .05); padding: 28px; margin-bottom: 24px;
@@ -83,7 +83,7 @@ section { scroll-margin-top: 100px; }
 .pill { display: inline-block; padding: 3px 14px; border-radius: 999px; background: #eee; color: #555; font-size: .85rem; font-weight: 700; }
 .pill.done { background: #e3f3e7; color: var(--good); }
 
-/* ===== Forms ===== */
+/* Forms = */
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
 .field label { display: block; margin-bottom: 8px; font-size: .78rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; }
 .field.req label::after { content: " *"; color: var(--red); }
@@ -98,7 +98,7 @@ input:user-invalid { border-color: var(--red); }
 .form-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 .toast { margin-top: 12px; font-weight: 700; color: var(--good); }
 
-/* ===== Tables ===== */
+/*  Tables  */
 .table-wrap { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 1rem; }
 th {
@@ -110,7 +110,7 @@ tbody tr:hover { background: #fafafa; }
 tr.today td { background: #fff4f5; }
 .empty { color: var(--grey); padding: 28px 12px; text-align: center; }
 
-/* ===== Stat tiles ===== */
+/*  Stat tiles  */
 .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 24px; }
 .stat { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 18px; box-shadow: 0 1px 4px rgba(0, 0, 0, .05); }
 .stat .label { margin: 0 0 6px; color: #555; }
@@ -118,7 +118,7 @@ tr.today td { background: #fff4f5; }
 .stat .unit { font-family: var(--body); font-size: .9rem; font-weight: 500; color: var(--grey); margin-left: 3px; }
 .stat svg { display: block; width: 100%; height: 30px; }
 
-/* ===== Activity page ===== */
+/*Activity page */
 .activity-layout { display: grid; grid-template-columns: minmax(320px, 460px) minmax(0, 1fr); gap: 24px; align-items: start; }
 .activity-layout .card { margin-bottom: 0; }
 .right-col { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; min-width: 0; }
@@ -129,16 +129,16 @@ tr.today td { background: #fff4f5; }
 #history-table td:nth-child(3) { border-left: 4px solid var(--red); font-weight: 700; }
 #history-table td { white-space: nowrap; }
 
-/* ===== Stats page ===== */
+/* Stats page  */
 .key { display: inline-flex; align-items: center; gap: 6px; font-size: .9rem; font-weight: 600; }
 .key i { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
 .h1 { background: #f7c3c9; }
 .h2 { background: #ee7f8b; }
 
-/* ===== Footer ===== */
+/*  Footer */
 .footer { text-align: center; padding: 30px 20px 40px; color: var(--grey); font-size: .9rem; border-top: 1px solid var(--line); }
 
-/* ===== Responsive ===== */
+/* Responsive  */
 @media (max-width: 900px) {
   .activity-layout { grid-template-columns: minmax(0, 1fr); }
   .tiles { grid-template-columns: repeat(2, 1fr); }
