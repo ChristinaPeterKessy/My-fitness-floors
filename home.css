@@ -1,8 +1,8 @@
-/* =====================================================================
+/*
    MYFITNESSFLOORS - Home page styles
    Look: white pages, black buttons, big condensed uppercase headlines,
    thin grey card borders. Red is used for accents and data.
-   ===================================================================== */
+ */
 
 :root {
   --red: #d9001b;
@@ -25,7 +25,7 @@ button { font-family: inherit; cursor: pointer; }
 :focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
 [hidden] { display: none !important; }
 
-/* ===== Top bar: logo left, links centred, profile avatar right ===== */
+/*Top bar: logo left, links centred, profile avatar right */
 .topbar { background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
 .topbar-inner {
   max-width: 1240px; margin: 0 auto; padding: 0 30px; height: 78px;
@@ -47,19 +47,19 @@ button { font-family: inherit; cursor: pointer; }
 .avatar-link:hover { opacity: .85; }
 .avatar-link.active { box-shadow: 0 0 0 3px #c8102e; }
 
-/* ===== Layout ===== */
+/* Layout */
 .wrap { max-width: 1240px; margin: 0 auto; padding: 44px 24px 60px; }
 .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .muted { color: var(--grey); }
 .small { font-size: .82rem; }
 section { scroll-margin-top: 100px; }
 
-/* ===== Type ===== */
+/*Type*/
 .section-title, .title, .hero-title { font-family: var(--head); font-weight: 700; text-transform: uppercase; line-height: 1; }
 .section-title { font-size: 3rem; margin: 70px 0 22px; }
 .title { font-size: 2.2rem; line-height: 1.1; }
 
-/* ===== Buttons and links ===== */
+/* Buttons and links */
 .btn {
   display: inline-block; border: 1px solid transparent; border-radius: 3px; padding: 14px 34px;
   font-family: var(--head); font-size: 1.3rem; font-weight: 700; letter-spacing: 1px;
@@ -74,7 +74,7 @@ section { scroll-margin-top: 100px; }
 }
 .link-red:hover { color: var(--red); }
 
-/* ===== Cards ===== */
+/* Cards*/
 .card {
   background: #fff; border: 1px solid var(--line); border-radius: 6px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, .05); padding: 28px; margin-bottom: 24px;
@@ -82,7 +82,7 @@ section { scroll-margin-top: 100px; }
 .three-col > .card { margin-bottom: 0; }
 .card p + p { margin-top: 10px; }
 
-/* ===== Hero ===== */
+/* Hero */
 .hero { display: grid; grid-template-columns: 5fr 7fr; gap: 60px; align-items: center; margin-bottom: 20px; }
 .hero-title { font-size: clamp(3rem, 6vw, 5.2rem); line-height: .95; margin-bottom: 34px; }
 .hero-text p { max-width: 490px; font-size: 1.15rem; margin-bottom: 40px; }
@@ -98,11 +98,11 @@ section { scroll-margin-top: 100px; }
 }
 .hero-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .45), transparent 40%); }
 
-/* ===== Home feature cards ===== */
+/* Home feature cards  */
 .feature h3 { margin-bottom: 10px; }
 .feature p { margin-bottom: 18px; min-height: 4.5em; }
 
-/* ===== Inspiration ===== */
+/*  Inspiration */
 .inspiration { display: grid; grid-template-columns: 375px 1fr; gap: 40px; align-items: center; }
 .inspiration figure img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 3px; }
 .inspiration figcaption { margin-top: 12px; color: var(--grey); font-size: .95rem; }
@@ -110,7 +110,7 @@ section { scroll-margin-top: 100px; }
 .inspiration p { margin-bottom: 20px; }
 .inspiration audio { width: 100%; max-width: 550px; }
 
-/* ===== Forms ===== */
+/* Forms */
 input, select, textarea {
   width: 100%; padding: 14px 16px; font: inherit; font-size: 1.05rem; color: inherit; background: #fff;
   border: 1px solid var(--field); border-radius: 3px;
@@ -118,7 +118,7 @@ input, select, textarea {
 textarea { resize: vertical; min-height: 110px; }
 input:user-invalid { border-color: var(--red); }
 
-/* ===== Tables ===== */
+/* Tables */
 table { border-collapse: collapse; width: 100%; font-size: 1rem; }
 th {
   text-align: left; font-size: .78rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase;
@@ -128,16 +128,16 @@ td { padding: 14px 12px; border-bottom: 1px solid var(--line); }
 tbody tr:hover { background: #fafafa; }
 .empty { color: var(--grey); padding: 28px 12px; text-align: center; }
 
-/* ===== Stats page ===== */
+/* Stats page */
 .goal { stroke: var(--ink); stroke-dasharray: 5 4; stroke-width: 1.2; }
 .h1 { background: #f7c3c9; }
 .h2 { background: #ee7f8b; }
 .h3 { background: #e2384d; }
 
-/* ===== Footer ===== */
+/* Footer */
 .footer { text-align: center; padding: 30px 20px 40px; color: var(--grey); font-size: .9rem; border-top: 1px solid var(--line); }
 
-/* ===== Responsive ===== */
+/* Responsive */
 @media (max-width: 1100px) {
   .hero { gap: 40px; }
 }
